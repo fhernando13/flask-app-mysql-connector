@@ -1,0 +1,17 @@
+#instalar flask
+pip install flask
+
+#instalr mysql conector
+pip install mysql-connector-python
+
+#instalar variables de entorno
+pip install python-dotenv         
+
+#crar archivo de variables de entorno para modo desarrollo
+.flaskenv
+***
+#dentro de .flaskenv
+FLASK_ENV=development
+FLASK_DEBUG=1
+FLASK_APP=app.py
+***

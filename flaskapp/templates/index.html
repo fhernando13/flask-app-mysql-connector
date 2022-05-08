@@ -1,0 +1,75 @@
+{% include 'layout.html' %}
+
+
+<form action="/agregar" method="POST">
+    <div class="container pt-4">
+
+        <div class="row"> 
+            <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Nombre</span>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+
+            <div class="col-sm-8">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Apellido</span>
+                    <input type="text" name="apellido" class="form-control" placeholder="Apellido" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Edad</span>
+                    <input type="number" name="edad" class="form-control" placeholder="Edad" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+
+            <div class="col-sm-9">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon-wrapping">Email</span>
+                    <input type="text" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>      
+            </div>  
+            
+            <div class="col-sm-1">
+                <div class="input-group mb-3">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+            </div> 
+        </div>   
+    </div>
+
+</form>
+
+<h1 class="text-center">Lista de contactos</h1>
+
+ <!-- #region -->
+
+<div class="container pt-4" >
+    <table class="table table-dark table-hover">
+        <tr>
+            <td scope="col">ID</td>
+            <td scope="col">Nombre</td>
+            <td scope="col">Apellido</td>
+            <td scope="col">Edad</td>
+            <td scope="col">Email</td>
+            <td scope="col">Editar</td>
+            <td scope="col">Eliminar</td>
+        </tr>
+        <tbody>
+            {% for persona in personas %}
+            <tr>
+                <td scope="row">{{persona.0}}</td>
+                <td scope="row">{{persona.1}}</td>
+                <td scope="row">{{persona.2}}</td>
+                <td scope="row">{{persona.3}}</td>
+                <td scope="row">{{persona.4}}</td>
+                <td scope="row"><a href="/editar/{{persona.0}}"><button type="button" class="btn btn-primary btn-sm">Editar</button></a></td>
+                <td scope="row"><a href="/eliminar/{{persona.0}}"><button type="button" class="btn btn-danger btn-sm">Eliminar</button></a></td>
+            </tr>
+</div>
+        {% endfor%}
